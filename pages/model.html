@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Profile - OnlyFans Directory</title>
+    <meta name="description" content="View detailed profile of this OnlyFans creator.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/components/header.css">
+    <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/pages/model.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification hidden">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-message">Theme changed successfully!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                        <span>OF Directory</span>
+                    </a>
+                </div>
+                
+                <!-- Main Search Bar -->
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="main-search" placeholder="Search by name, tags, location...">
+                        <button class="search-btn">Search</button>
+                    </div>
+                    <a href="./search.html" class="advanced-search-link">Advanced Search</a>
+                </div>
+                
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" id="favorites-btn" class="btn btn-outline">
+                        <i class="fas fa-heart"></i> Favorites
+                        <span id="favorites-count" class="badge">0</span>
+                    </a>
+                    <a href="../index.html#newsletter" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Subscribe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="back-button">
+                <a href="../index.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Back to Directory
+                </a>
+            </div>
+            
+            <!-- Model Profile Section -->
+            <section class="model-profile" id="model-profile">
+                <!-- Content will be dynamically loaded here -->
+                <div class="profile-loading">
+                    <div class="spinner"></div>
+                    <p>Loading profile...</p>
+                </div>
+            </section>
+            
+            <!-- Similar Models Section -->
+            <section class="similar-models">
+                <h2>Similar Creators</h2>
+                <div class="similar-models-grid" id="similar-models-grid">
+                    <!-- Similar models will be dynamically loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                    <span>OF Directory</span>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Directory</h3>
+                        <ul>
+                            <li><a href="../index.html">Browse Models</a></li>
+                            <li><a href="./search.html">Advanced Search</a></li>
+                            <li><a href="#" id="footer-favorites">Favorites</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Popular Tags</h3>
+                        <ul id="popular-tags">
+                            <!-- Popular tags will be dynamically added here -->
+                            <li><a href="#" data-tag="fitness">Fitness</a></li>
+                            <li><a href="#" data-tag="model">Model</a></li>
+                            <li><a href="#" data-tag="cosplay">Cosplay</a></li>
+                            <li><a href="#" data-tag="gaming">Gaming</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter Section -->
+            <div class="newsletter-section" id="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest updates on new creators and exclusive content.</p>
+                <form class="newsletter-form">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> OnlyFans Directory. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Model Profile Template (Hidden) -->
+    <template id="model-profile-template">
+        <div class="profile-header">
+            <div class="profile-image">
+                <img src="" alt="">
+            </div>
+            <div class="profile-info">
+                <div class="profile-name-actions">
+                    <h1 class="profile-name"></h1>
+                    <div class="profile-actions">
+                        <button class="favorite-btn btn btn-outline" data-id="">
+                            <i class="far fa-heart"></i> <span>Add to Favorites</span>
+                        </button>
+                        <a href="#" class="follow-btn btn btn-primary" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Follow on OnlyFans
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span class="stat-label">Price</span>
+                        <span class="stat-value price"></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-heart"></i>
+                        <span class="stat-label">Likes</span>
+                        <span class="stat-value likes"></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-photo-video"></i>
+                        <span class="stat-label">Media</span>
+                        <span class="stat-value media-count"></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-label">Rating</span>
+                        <span class="stat-value rating"></span>
+                    </div>
+                </div>
+                
+                <div class="profile-tags"></div>
+                
+                <div class="profile-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="location"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-description">
+                <h2>About</h2>
+                <div class="description-text"></div>
+            </div>
+            
+            <div class="profile-social">
+                <h2>Social Media</h2>
+                <div class="social-links"></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Similar Model Card Template (Hidden) -->
+    <template id="similar-model-card-template">
+        <div class="similar-model-card">
+            <div class="card-image">
+                <img src="" alt="" loading="lazy">
+            </div>
+            <div class="card-info">
+                <h3 class="model-name"></h3>
+                <div class="model-meta">
+                    <span class="model-price"></span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="#" class="btn btn-outline profile-btn">View Profile</a>
+            </div>
+        </div>
+    </template>
+
+    <!-- JavaScript Files -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/favorites.js"></script>
+    <script src="../js/models.js"></script>
+    <script src="../js/model-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Model - OnlyFans Directory</title>
+    <meta name="description" content="Add a new OnlyFans creator to our directory.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/components/header.css">
+    <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/pages/add-model.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification hidden">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-message">Theme changed successfully!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                        <span>OF Directory</span>
+                    </a>
+                </div>
+                
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" id="favorites-btn" class="btn btn-outline">
+                        <i class="fas fa-heart"></i> Favorites
+                        <span id="favorites-count" class="badge">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <section class="add-model-header">
+                <h1>Add a Creator</h1>
+                <p>Add a new OnlyFans creator to our directory. Please ensure all information is accurate and up-to-date.</p>
+            </section>
+            
+            <section class="add-model-section">
+                <form id="add-model-form" class="add-model-form">
+                    <div class="form-section">
+                        <h2><i class="fas fa-id-card"></i> Basic Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-name">Name <span class="required">*</span></label>
+                                <input type="text" id="model-name" name="model-name" required placeholder="Enter creator's display name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-onlyfans-url">OnlyFans URL <span class="required">*</span></label>
+                                <div class="input-with-prefix">
+                                    <span class="input-prefix">https://onlyfans.com/</span>
+                                    <input type="text" id="model-onlyfans-url" name="model-onlyfans-url" required placeholder="username">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-price">Subscription Price <span class="required">*</span></label>
+                                <div class="input-with-prefix">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="model-price" name="model-price" min="0" step="0.99" required placeholder="0.00">
+                                </div>
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="model-free" name="model-free">
+                                    <label for="model-free">Free Account</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2><i class="fas fa-image"></i> Images</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-profile-image">Profile Image <span class="required">*</span></label>
+                                <div class="image-upload-container">
+                                    <div class="image-preview" id="profile-image-preview">
+                                        <i class="fas fa-user"></i>
+                                        <span>No image selected</span>
+                                    </div>
+                                    <div class="image-upload-controls">
+                                        <label for="model-profile-image" class="btn btn-outline upload-btn">
+                                            <i class="fas fa-upload"></i> Select Image
+                                        </label>
+                                        <input type="file" id="model-profile-image" name="model-profile-image" accept="image/*" required>
+                                        <p class="image-help-text">Upload a clear profile image. Recommended size: 500x500px.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-cover-image">Cover Image (Optional)</label>
+                                <div class="image-upload-container">
+                                    <div class="image-preview" id="cover-image-preview">
+                                        <i class="fas fa-image"></i>
+                                        <span>No image selected</span>
+                                    </div>
+                                    <div class="image-upload-controls">
+                                        <label for="model-cover-image" class="btn btn-outline upload-btn">
+                                            <i class="fas fa-upload"></i> Select Image
+                                        </label>
+                                        <input type="file" id="model-cover-image" name="model-cover-image" accept="image/*">
+                                        <p class="image-help-text">Upload a cover image for the model's profile page. Recommended size: 1200x400px.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2><i class="fas fa-info-circle"></i> Additional Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-description">Description <span class="required">*</span></label>
+                                <textarea id="model-description" name="model-description" required placeholder="Enter a brief description of the creator's content"></textarea>
+                                <div class="char-counter">
+                                    <span id="description-char-count">0</span>/300 characters
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-tags">Tags <span class="required">*</span></label>
+                                <div class="tags-input-container">
+                                    <div class="tags-input-wrapper">
+                                        <div class="tags-list" id="tags-list">
+                                            <!-- Selected tags will appear here -->
+                                        </div>
+                                        <input type="text" id="tag-input" placeholder="Add a tag...">
+                                    </div>
+                                    <div class="tags-suggestions" id="tags-suggestions">
+                                        <!-- Tag suggestions will appear here -->
+                                        <span class="tag-suggestion" data-tag="fitness">Fitness</span>
+                                        <span class="tag-suggestion" data-tag="model">Model</span>
+                                        <span class="tag-suggestion" data-tag="cosplay">Cosplay</span>
+                                        <span class="tag-suggestion" data-tag="gaming">Gaming</span>
+                                        <span class="tag-suggestion" data-tag="asmr">ASMR</span>
+                                        <span class="tag-suggestion" data-tag="dance">Dance</span>
+                                        <span class="tag-suggestion" data-tag="cooking">Cooking</span>
+                                        <span class="tag-suggestion" data-tag="art">Art</span>
+                                        <span class="tag-suggestion" data-tag="music">Music</span>
+                                        <span class="tag-suggestion" data-tag="travel">Travel</span>
+                                        <span class="tag-suggestion" data-tag="beauty">Beauty</span>
+                                        <span class="tag-suggestion" data-tag="fashion">Fashion</span>
+                                    </div>
+                                    <input type="hidden" id="model-tags" name="model-tags" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-location">Location</label>
+                                <select id="model-location" name="model-location">
+                                    <option value="">Select Location</option>
+                                    <option value="united-states">United States</option>
+                                    <option value="united-kingdom">United Kingdom</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="australia">Australia</option>
+                                    <option value="france">France</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="italy">Italy</option>
+                                    <option value="spain">Spain</option>
+                                    <option value="brazil">Brazil</option>
+                                    <option value="japan">Japan</option>
+                                    <option value="south-korea">South Korea</option>
+                                    <!-- More countries can be added here -->
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-likes">Likes Count</label>
+                                <input type="number" id="model-likes" name="model-likes" min="0" placeholder="Number of likes">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-media-count">Media Count</label>
+                                <input type="number" id="model-media-count" name="model-media-count" min="0" placeholder="Number of media items">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2><i class="fas fa-share-alt"></i> Social Media (Optional)</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-instagram">Instagram</label>
+                                <div class="input-with-prefix">
+                                    <span class="input-prefix">instagram.com/</span>
+                                    <input type="text" id="model-instagram" name="model-instagram" placeholder="username">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-twitter">Twitter</label>
+                                <div class="input-with-prefix">
+                                    <span class="input-prefix">twitter.com/</span>
+                                    <input type="text" id="model-twitter" name="model-twitter" placeholder="username">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-tiktok">TikTok</label>
+                                <div class="input-with-prefix">
+                                    <span class="input-prefix">tiktok.com/@</span>
+                                    <input type="text" id="model-tiktok" name="model-tiktok" placeholder="username">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model-website">Website</label>
+                                <input type="url" id="model-website" name="model-website" placeholder="https://example.com">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" id="reset-form" class="btn btn-outline">
+                            <i class="fas fa-undo"></i> Reset Form
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus-circle"></i> Add Creator
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                    <span>OF Directory</span>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Directory</h3>
+                        <ul>
+                            <li><a href="../index.html">Browse Models</a></li>
+                            <li><a href="./search.html">Advanced Search</a></li>
+                            <li><a href="#" id="footer-favorites">Favorites</a></li>
+                            <li><a href="./add-model.html">Add Model</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Popular Tags</h3>
+                        <ul id="popular-tags">
+                            <!-- Popular tags will be dynamically added here -->
+                            <li><a href="#" data-tag="fitness">Fitness</a></li>
+                            <li><a href="#" data-tag="model">Model</a></li>
+                            <li><a href="#" data-tag="cosplay">Cosplay</a></li>
+                            <li><a href="#" data-tag="gaming">Gaming</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> OnlyFans Directory. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/favorites.js"></script>
+    <script src="../js/add-model.js"></script>
+</body>
+</html>

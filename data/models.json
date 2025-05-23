@@ -1,0 +1,212 @@
+[
+  {
+    "id": "model-1",
+    "name": "Sophia Rose",
+    "onlyfansUrl": "https://onlyfans.com/sophiarose",
+    "profileImage": "https://picsum.photos/500/500?random=1",
+    "coverImage": "https://picsum.photos/1200/400?random=1",
+    "description": "Hey there! I'm Sophia, a fitness enthusiast and model sharing my workouts, healthy recipes, and lifestyle content. Join me for exclusive behind-the-scenes content from my photoshoots!",
+    "price": 9.99,
+    "likes": 24531,
+    "mediaCount": 342,
+    "rating": 4.8,
+    "tags": ["fitness", "model", "lifestyle"],
+    "location": "United States",
+    "createdAt": "2024-03-15T12:00:00Z",
+    "socialMedia": {
+      "instagram": "sophiarose_official",
+      "twitter": "sophiarose",
+      "tiktok": "sophiarose",
+      "website": "https://sophiarose.com"
+    }
+  },
+  {
+    "id": "model-2",
+    "name": "Alex Gaming",
+    "onlyfansUrl": "https://onlyfans.com/alexgaming",
+    "profileImage": "https://picsum.photos/500/500?random=2",
+    "coverImage": "https://picsum.photos/1200/400?random=2",
+    "description": "Professional gamer sharing gameplay tips, tricks, and exclusive content! Join me for behind-the-scenes gaming sessions, early access to videos, and personal game reviews.",
+    "price": 7.99,
+    "likes": 18624,
+    "mediaCount": 215,
+    "rating": 4.7,
+    "tags": ["gaming", "streamer", "tech"],
+    "location": "Canada",
+    "createdAt": "2024-02-22T14:30:00Z",
+    "socialMedia": {
+      "instagram": "alexgaming",
+      "twitter": "alex_gaming",
+      "tiktok": "alexgamingofficial",
+      "website": null
+    }
+  },
+  {
+    "id": "model-3",
+    "name": "Mika Cosplay",
+    "onlyfansUrl": "https://onlyfans.com/mikacosplay",
+    "profileImage": "https://picsum.photos/500/500?random=3",
+    "coverImage": "https://picsum.photos/1200/400?random=3",
+    "description": "Bringing your favorite characters to life through cosplay! Exclusive photoshoots, costume creation process, and behind-the-scenes content. Join me for premium cosplay content!",
+    "price": 14.99,
+    "likes": 32158,
+    "mediaCount": 487,
+    "rating": 4.9,
+    "tags": ["cosplay", "art", "fashion"],
+    "location": "Japan",
+    "createdAt": "2024-01-10T09:15:00Z",
+    "socialMedia": {
+      "instagram": "mika_cosplay",
+      "twitter": "mikacosplayofficial",
+      "tiktok": "mikacosplay",
+      "website": "https://mikacosplay.com"
+    }
+  },
+  {
+    "id": "model-4",
+    "name": "Chef Marco",
+    "onlyfansUrl": "https://onlyfans.com/chefmarco",
+    "profileImage": "https://picsum.photos/500/500?random=4",
+    "coverImage": "https://picsum.photos/1200/400?random=4",
+    "description": "Professional chef sharing exclusive recipes, cooking techniques, and culinary adventures. Join for weekly meal plans, personalized cooking tips, and food photography!",
+    "price": 6.99,
+    "likes": 15247,
+    "mediaCount": 194,
+    "rating": 4.6,
+    "tags": ["cooking", "food", "lifestyle"],
+    "location": "Italy",
+    "createdAt": "2024-04-05T16:45:00Z",
+    "socialMedia": {
+      "instagram": "chef_marco",
+      "twitter": "chefmarcoofficial",
+      "tiktok": "chefmarco",
+      "website": "https://chefmarco.com"
+    }
+  },
+  {
+    "id": "model-5",
+    "name": "Luna ASMR",
+    "onlyfansUrl": "https://onlyfans.com/lunaasmr",
+    "profileImage": "https://picsum.photos/500/500?random=5",
+    "coverImage": "https://picsum.photos/1200/400?random=5",
+    "description": "Creating relaxing ASMR content to help you sleep, focus, or just unwind. Exclusive long-form videos, personalized requests, and behind-the-scenes content from my recording studio.",
+    "price": 9.99,
+    "likes": 29876,
+    "mediaCount": 312,
+    "rating": 4.8,
+    "tags": ["asmr", "relaxation", "audio"],
+    "location": "United Kingdom",
+    "createdAt": "2024-03-28T20:00:00Z",
+    "socialMedia": {
+      "instagram": "luna_asmr",
+      "twitter": "lunaasmrofficial",
+      "tiktok": "luna_asmr",
+      "website": null
+    }
+  },
+  {
+    "id": "model-6",
+    "name": "Dancer Ria",
+    "onlyfansUrl": "https://onlyfans.com/dancerria",
+    "profileImage": "https://picsum.photos/500/500?random=6",
+    "coverImage": "https://picsum.photos/1200/400?random=6",
+    "description": "Professional dancer sharing choreographies, dance tutorials, and behind-the-scenes content from performances and rehearsals. Join for exclusive dance videos and fitness routines!",
+    "price": 12.99,
+    "likes": 21543,
+    "mediaCount": 278,
+    "rating": 4.7,
+    "tags": ["dance", "fitness", "art"],
+    "location": "Brazil",
+    "createdAt": "2024-02-14T11:30:00Z",
+    "socialMedia": {
+      "instagram": "dancer_ria",
+      "twitter": "dancerria",
+      "tiktok": "dancerria_official",
+      "website": "https://dancerria.com"
+    }
+  },
+  {
+    "id": "model-7",
+    "name": "Travel with Emma",
+    "onlyfansUrl": "https://onlyfans.com/travelwithemma",
+    "profileImage": "https://picsum.photos/500/500?random=7",
+    "coverImage": "https://picsum.photos/1200/400?random=7",
+    "description": "Travel blogger sharing exclusive content from my adventures around the world. Join for detailed travel guides, hidden gems, photography tips, and behind-the-scenes from my journeys.",
+    "price": 8.99,
+    "likes": 19754,
+    "mediaCount": 421,
+    "rating": 4.6,
+    "tags": ["travel", "photography", "lifestyle"],
+    "location": "Australia",
+    "createdAt": "2024-01-25T08:45:00Z",
+    "socialMedia": {
+      "instagram": "travel_with_emma",
+      "twitter": "travelwithemma",
+      "tiktok": "travelwithemma",
+      "website": "https://travelwithemma.com"
+    }
+  },
+  {
+    "id": "model-8",
+    "name": "Artist Jay",
+    "onlyfansUrl": "https://onlyfans.com/artistjay",
+    "profileImage": "https://picsum.photos/500/500?random=8",
+    "coverImage": "https://picsum.photos/1200/400?random=8",
+    "description": "Digital artist sharing my creative process, exclusive artwork, and tutorials. Join for high-resolution art, time-lapse videos, brushes, and personalized art tips!",
+    "price": 10.99,
+    "likes": 17683,
+    "mediaCount": 246,
+    "rating": 4.8,
+    "tags": ["art", "digital", "creative"],
+    "location": "France",
+    "createdAt": "2024-04-12T15:20:00Z",
+    "socialMedia": {
+      "instagram": "artist_jay",
+      "twitter": "artistjay",
+      "tiktok": "artist_jay_official",
+      "website": "https://artistjay.com"
+    }
+  },
+  {
+    "id": "model-9",
+    "name": "Music with Mike",
+    "onlyfansUrl": "https://onlyfans.com/musicwithmike",
+    "profileImage": "https://picsum.photos/500/500?random=9",
+    "coverImage": "https://picsum.photos/1200/400?random=9",
+    "description": "Musician sharing exclusive tracks, behind-the-scenes from the studio, and music production tutorials. Join for unreleased songs, sample packs, and personalized music advice!",
+    "price": 7.99,
+    "likes": 16429,
+    "mediaCount": 189,
+    "rating": 4.7,
+    "tags": ["music", "producer", "audio"],
+    "location": "Germany",
+    "createdAt": "2024-03-05T17:40:00Z",
+    "socialMedia": {
+      "instagram": "music_with_mike",
+      "twitter": "musicwithmike",
+      "tiktok": "musicwithmike",
+      "website": "https://musicwithmike.com"
+    }
+  },
+  {
+    "id": "model-10",
+    "name": "Fashion by Zoe",
+    "onlyfansUrl": "https://onlyfans.com/fashionbyzoe",
+    "profileImage": "https://picsum.photos/500/500?random=10",
+    "coverImage": "https://picsum.photos/1200/400?random=10",
+    "description": "Fashion designer sharing exclusive collections, design process, and style tips. Join for early access to my designs, fashion lookbooks, and personalized style consultations!",
+    "price": 11.99,
+    "likes": 22875,
+    "mediaCount": 356,
+    "rating": 4.9,
+    "tags": ["fashion", "design", "style"],
+    "location": "Spain",
+    "createdAt": "2024-02-28T10:15:00Z",
+    "socialMedia": {
+      "instagram": "fashion_by_zoe",
+      "twitter": "fashionbyzoe",
+      "tiktok": "fashionbyzoe",
+      "website": "https://fashionbyzoe.com"
+    }
+  }
+]

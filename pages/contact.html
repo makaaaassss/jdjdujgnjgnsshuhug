@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - OnlyFans Directory</title>
+    <meta name="description" content="Contact OnlyFans Directory for support, feedback, or business inquiries.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/components/header.css">
+    <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Contact page specific styles */
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .contact-info {
+            background-color: var(--color-surface-1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border-light);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-xs);
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent-600);
+            transition: width var(--transition-normal);
+        }
+        
+        .contact-info:hover h3::after {
+            width: 100%;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-method:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: var(--border-radius-full);
+            background-color: var(--color-primary-100);
+            color: var(--color-primary-600);
+            font-size: var(--font-size-lg);
+            flex-shrink: 0;
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-md);
+        }
+        
+        .contact-details p, .contact-details a {
+            color: var(--color-neutral-600);
+            font-size: var(--font-size-sm);
+        }
+        
+        .contact-details a:hover {
+            color: var(--color-accent-600);
+        }
+        
+        .contact-form {
+            background-color: var(--color-surface-1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border-light);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-xs);
+        }
+        
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent-600);
+            transition: width var(--transition-normal);
+        }
+        
+        .contact-form:hover h3::after {
+            width: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--color-border-medium);
+            border-radius: var(--border-radius-md);
+            background-color: var(--color-surface-1);
+            color: var(--color-foreground);
+            transition: border-color var(--transition-fast);
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent-600);
+            box-shadow: 0 0 0 2px var(--color-accent-200);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        /* Dark mode styles */
+        :root[data-theme="dark"] .contact-info,
+        :root[data-theme="dark"] .contact-form {
+            background-color: var(--color-neutral-100);
+            border-color: var(--color-neutral-300);
+        }
+        
+        :root[data-theme="dark"] .contact-info h3::after,
+        :root[data-theme="dark"] .contact-form h3::after {
+            box-shadow: var(--neon-glow-small);
+        }
+        
+        :root[data-theme="dark"] .contact-icon {
+            background-color: var(--color-neutral-200);
+            color: var(--color-primary-300);
+            box-shadow: var(--neon-glow-small);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification hidden">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-message">Theme changed successfully!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                        <span>OF Directory</span>
+                    </a>
+                </div>
+                
+                <!-- Main Search Bar -->
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="main-search" placeholder="Search by name, tags, location...">
+                        <button class="search-btn">Search</button>
+                    </div>
+                    <a href="./search.html" class="advanced-search-link">Advanced Search</a>
+                </div>
+                
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" id="favorites-btn" class="btn btn-outline">
+                        <i class="fas fa-heart"></i> Favorites
+                        <span id="favorites-count" class="badge">0</span>
+                    </a>
+                    <a href="../index.html#newsletter" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Subscribe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="back-button">
+                <a href="../index.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Back to Directory
+                </a>
+            </div>
+            
+            <section class="contact-section">
+                <div class="contact-header">
+                    <h1>Contact Us</h1>
+                    <p>We'd love to hear from you! Please use one of the methods below to get in touch with our team.</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Us</h4>
+                                <p>For general inquiries and support:</p>
+                                <a href="mailto:contact@ofdirectory.com" class="contact-email">contact@ofdirectory.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Call Us</h4>
+                                <p>Monday to Friday, 9am - 5pm EST:</p>
+                                <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-comment-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Social Media</h4>
+                                <p>Connect with us on social platforms:</p>
+                                <div class="social-links-small">
+                                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a> | 
+                                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a> | 
+                                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i> Discord</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send a Message</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                    <span>OF Directory</span>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Directory</h3>
+                        <ul>
+                            <li><a href="../index.html">Browse Models</a></li>
+                            <li><a href="./search.html">Advanced Search</a></li>
+                            <li><a href="#" id="footer-favorites">Favorites</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Popular Tags</h3>
+                        <ul id="popular-tags">
+                            <!-- Popular tags will be dynamically added here -->
+                            <li><a href="#" data-tag="fitness">Fitness</a></li>
+                            <li><a href="#" data-tag="model">Model</a></li>
+                            <li><a href="#" data-tag="cosplay">Cosplay</a></li>
+                            <li><a href="#" data-tag="gaming">Gaming</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter Section -->
+            <div class="newsletter-section" id="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest updates on new creators and exclusive content.</p>
+                <form class="newsletter-form">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> OnlyFans Directory. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="./contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/favorites.js"></script>
+    <script src="../js/models.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/features.js"></script>
+    <script src="../js/perf.js"></script>
+    
+    <!-- Contact form handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // In a real implementation, this would send data to a server
+                    // For this demo, we'll just show a success notification
+                    utils.showNotification('Your message has been sent! We\'ll get back to you soon.', 'success');
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

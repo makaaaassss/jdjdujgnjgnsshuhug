@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Search - OnlyFans Directory</title>
+    <meta name="description" content="Search for OnlyFans creators using advanced filters and criteria.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/components/header.css">
+    <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/pages/search.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification hidden">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-message">Theme changed successfully!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                        <span>OF Directory</span>
+                    </a>
+                </div>
+                
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" id="favorites-btn" class="btn btn-outline">
+                        <i class="fas fa-heart"></i> Favorites
+                        <span id="favorites-count" class="badge">0</span>
+                    </a>
+                    <a href="../index.html#newsletter" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Subscribe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <section class="search-header">
+                <h1>Advanced Search</h1>
+                <p>Find the perfect OnlyFans creators using our advanced search filters.</p>
+            </section>
+            
+            <section class="advanced-search-section">
+                <div class="search-form-container">
+                    <form id="advanced-search-form" class="advanced-search-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="keyword">Keyword or Name</label>
+                                <input type="text" id="keyword" name="keyword" placeholder="Enter name or keyword">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="price-min">Price Range</label>
+                                <div class="price-range-inputs">
+                                    <div class="price-input">
+                                        <span class="price-symbol">$</span>
+                                        <input type="number" id="price-min" name="price-min" min="0" placeholder="Min">
+                                    </div>
+                                    <span class="price-separator">to</span>
+                                    <div class="price-input">
+                                        <span class="price-symbol">$</span>
+                                        <input type="number" id="price-max" name="price-max" min="0" placeholder="Max">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="rating-min">Rating (Minimum)</label>
+                                <div class="rating-slider-container">
+                                    <input type="range" id="rating-min" name="rating-min" min="1" max="5" step="0.5" value="1" class="rating-slider">
+                                    <div class="rating-display">
+                                        <span id="rating-value">1.0</span>
+                                        <div class="stars-container" id="rating-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <div class="tags-selection" id="tags-selection">
+                                    <!-- Tags will be dynamically inserted here -->
+                                    <span class="tag" data-tag="fitness">Fitness</span>
+                                    <span class="tag" data-tag="model">Model</span>
+                                    <span class="tag" data-tag="cosplay">Cosplay</span>
+                                    <span class="tag" data-tag="gaming">Gaming</span>
+                                    <span class="tag" data-tag="asmr">ASMR</span>
+                                    <span class="tag" data-tag="dance">Dance</span>
+                                    <span class="tag" data-tag="cooking">Cooking</span>
+                                    <span class="tag" data-tag="art">Art</span>
+                                    <span class="tag" data-tag="music">Music</span>
+                                    <span class="tag" data-tag="travel">Travel</span>
+                                    <span class="tag" data-tag="beauty">Beauty</span>
+                                    <span class="tag" data-tag="fashion">Fashion</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <select id="location" name="location">
+                                    <option value="">Any Location</option>
+                                    <option value="united-states">United States</option>
+                                    <option value="united-kingdom">United Kingdom</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="australia">Australia</option>
+                                    <option value="france">France</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="italy">Italy</option>
+                                    <option value="spain">Spain</option>
+                                    <option value="brazil">Brazil</option>
+                                    <option value="japan">Japan</option>
+                                    <option value="south-korea">South Korea</option>
+                                    <!-- More countries can be added here -->
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="media-count-min">Media Count (Minimum)</label>
+                                <input type="number" id="media-count-min" name="media-count-min" min="0" placeholder="Minimum media count">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="likes-min">Likes (Minimum)</label>
+                                <input type="number" id="likes-min" name="likes-min" min="0" placeholder="Minimum likes">
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-outline">
+                                <i class="fas fa-undo"></i> Reset Filters
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="search-results-container">
+                    <div class="search-results-header">
+                        <h2>Search Results</h2>
+                        <p class="results-count">Found <span id="results-count">0</span> creators</p>
+                        
+                        <div class="sort-controls">
+                            <label for="sort-results">Sort By:</label>
+                            <select id="sort-results">
+                                <option value="relevance">Relevance</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating-high">Rating: High to Low</option>
+                                <option value="likes-high">Likes: High to Low</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="search-results" id="search-results">
+                        <!-- Search results will be dynamically loaded here -->
+                        <div class="no-results">
+                            <i class="fas fa-search"></i>
+                            <p>Use the filters to find OnlyFans creators</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination Controls -->
+                    <div class="pagination-controls" id="pagination-controls">
+                        <!-- Pagination will be dynamically added here when there are results -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo.png" alt="OnlyFans Directory Logo">
+                    <span>OF Directory</span>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Directory</h3>
+                        <ul>
+                            <li><a href="../index.html">Browse Models</a></li>
+                            <li><a href="./search.html">Advanced Search</a></li>
+                            <li><a href="#" id="footer-favorites">Favorites</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Popular Tags</h3>
+                        <ul id="popular-tags">
+                            <!-- Popular tags will be dynamically added here -->
+                            <li><a href="#" data-tag="fitness">Fitness</a></li>
+                            <li><a href="#" data-tag="model">Model</a></li>
+                            <li><a href="#" data-tag="cosplay">Cosplay</a></li>
+                            <li><a href="#" data-tag="gaming">Gaming</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter Section -->
+            <div class="newsletter-section" id="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest updates on new creators and exclusive content.</p>
+                <form class="newsletter-form">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> OnlyFans Directory. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Result Card Template (Hidden) -->
+    <template id="search-result-template">
+        <div class="search-result-card">
+            <div class="result-image">
+                <img src="" alt="" loading="lazy">
+            </div>
+            <div class="result-info">
+                <div class="result-header">
+                    <h3 class="result-name"></h3>
+                    <div class="result-meta">
+                        <span class="result-price"></span>
+                        <span class="result-rating">
+                            <div class="stars-container"></div>
+                        </span>
+                    </div>
+                </div>
+                <p class="result-description"></p>
+                <div class="result-tags"></div>
+                <div class="result-stats">
+                    <span class="result-likes"><i class="fas fa-heart"></i> <span class="likes-count"></span></span>
+                    <span class="result-media"><i class="fas fa-photo-video"></i> <span class="media-count"></span></span>
+                    <span class="result-location"><i class="fas fa-map-marker-alt"></i> <span class="location"></span></span>
+                </div>
+            </div>
+            <div class="result-actions">
+                <button class="favorite-btn btn btn-outline" data-id="">
+                    <i class="far fa-heart"></i>
+                </button>
+                <a href="#" class="btn btn-outline profile-btn">View Profile</a>
+                <a href="#" class="btn btn-primary follow-btn" target="_blank">Follow</a>
+            </div>
+        </div>
+    </template>
+
+    <!-- JavaScript Files -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/favorites.js"></script>
+    <script src="../js/models.js"></script>
+    <script src="../js/search-page.js"></script>
+</body>
+</html>

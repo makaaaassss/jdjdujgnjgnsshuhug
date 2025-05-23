@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyFans Directory - Find Your Favorite Creators</title>
+    <meta name="description" content="Find and discover OnlyFans creators by name, tags, price, and more.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="./css/components/header.css">
+    <link rel="stylesheet" href="./css/components/footer.css">
+    <link rel="stylesheet" href="./css/components/cards.css">
+    <link rel="stylesheet" href="./css/components/search.css">
+    <link rel="stylesheet" href="./css/components/buttons.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification hidden">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-message">Theme changed successfully!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./assets/images/logo.png" alt="OnlyFans Directory Logo">
+                        <span>OF Directory</span>
+                    </a>
+                </div>
+                
+                <!-- Main Search Bar -->
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="main-search" placeholder="Search by name, tags, location...">
+                        <button class="search-btn">Search</button>
+                    </div>
+                    <a href="./pages/search.html" class="advanced-search-link">Advanced Search</a>
+                </div>
+                
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" id="favorites-btn" class="btn btn-outline">
+                        <i class="fas fa-heart"></i> Favorites
+                        <span id="favorites-count" class="badge">0</span>
+                    </a>
+                    <a href="#newsletter" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Subscribe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Discover OnlyFans Creators</h1>
+                <p>Find and connect with your favorite creators by browsing our extensive directory.</p>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label>Sort By:</label>
+                        <select id="sort-select">
+                            <option value="newest">Newest</option>
+                            <option value="oldest">Oldest</option>
+                            <option value="a-z">A-Z</option>
+                            <option value="z-a">Z-A</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="popularity">Popularity</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Filter by Tags:</label>
+                        <div class="tags-container" id="filter-tags">
+                            <!-- Tags will be dynamically added here -->
+                            <span class="tag" data-tag="fitness">Fitness</span>
+                            <span class="tag" data-tag="model">Model</span>
+                            <span class="tag" data-tag="cosplay">Cosplay</span>
+                            <span class="tag" data-tag="gaming">Gaming</span>
+                            <span class="tag active" data-tag="all">All</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Price Range:</label>
+                        <div class="price-slider-container">
+                            <input type="range" id="price-slider" min="0" max="50" value="50" class="price-slider">
+                            <div class="price-range">
+                                <span>$0</span>
+                                <span id="price-value">$50+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Grid Section -->
+        <section class="models-section">
+            <div class="container">
+                <h2>Browse Creators</h2>
+                <p class="results-count">Showing <span id="results-count">0</span> creators</p>
+                
+                <!-- Pagination Controls - Top -->
+                <div class="pagination-controls">
+                    <button id="prev-page" class="btn btn-outline" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span class="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+                    <button id="next-page" class="btn btn-outline" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Models Grid -->
+                <div class="models-grid" id="models-grid">
+                    <!-- Model cards will be dynamically inserted here -->
+                </div>
+                
+                <!-- Pagination Controls - Bottom -->
+                <div class="pagination-controls">
+                    <button id="prev-page-bottom" class="btn btn-outline" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span class="page-indicator">Page <span id="current-page-bottom">1</span> of <span id="total-pages-bottom">1</span></span>
+                    <button id="next-page-bottom" class="btn btn-outline" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./assets/images/logo.png" alt="OnlyFans Directory Logo">
+                    <span>OF Directory</span>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Directory</h3>
+                        <ul>
+                            <li><a href="index.html">Browse Models</a></li>
+                            <li><a href="./pages/search.html">Advanced Search</a></li>
+                            <li><a href="#" id="footer-favorites">Favorites</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Popular Tags</h3>
+                        <ul id="popular-tags">
+                            <!-- Popular tags will be dynamically added here -->
+                            <li><a href="#" data-tag="fitness">Fitness</a></li>
+                            <li><a href="#" data-tag="model">Model</a></li>
+                            <li><a href="#" data-tag="cosplay">Cosplay</a></li>
+                            <li><a href="#" data-tag="gaming">Gaming</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter Section -->
+            <div class="newsletter-section" id="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest updates on new creators and exclusive content.</p>
+                <form class="newsletter-form">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> OnlyFans Directory. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="./pages/contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Model Card Template (Hidden) -->
+    <template id="model-card-template">
+        <div class="model-card">
+            <div class="card-favorite">
+                <button class="favorite-btn" data-id="">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            <div class="card-image">
+                <img src="" alt="" loading="lazy">
+            </div>
+            <div class="card-info">
+                <h3 class="model-name"></h3>
+                <div class="model-meta">
+                    <span class="model-price"></span>
+                    <span class="model-likes"><i class="fas fa-heart"></i> <span class="likes-count"></span></span>
+                </div>
+                <p class="model-description"></p>
+                <div class="model-tags"></div>
+            </div>
+            <div class="card-actions">
+                <a href="#" class="btn btn-outline profile-btn">Profile</a>
+                <a href="#" class="btn btn-primary follow-btn" target="_blank">Follow</a>
+            </div>
+        </div>
+    </template>
+
+    <!-- JavaScript Files -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/favorites.js"></script>
+    <script src="./js/models.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
